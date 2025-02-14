@@ -153,4 +153,15 @@ public class ReservationResource {
         return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
     }
 
+    @RequestMapping(path = "/livepresentation")
+    public ResponseEntity<String> displayLivePresentation(){
+        String presentation = "Join us for an online live presentation 2";
+        return new ResponseEntity<String>(presentation, HttpStatus.OK);
+    }
+
+    @RequestMapping(path = "/presentation", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public String[] showPresentation() {
+        String finalMessage = "Join us for an online live presentation";
+        return new String[] { finalMessage };
+    }
 }
