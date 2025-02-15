@@ -20,7 +20,7 @@ public class MessageMapping {
     static ExecutorService messageExecutor=newFixedThreadPool(5);
     public static String[] translationArray = new String[2];;
     @RequestMapping(path = "/presentation", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public static String[] showPresentation() {
+    public static String[] showWelcomeMessage() {
         Properties properties=new Properties();
         messageExecutor.execute(()-> {
             try {

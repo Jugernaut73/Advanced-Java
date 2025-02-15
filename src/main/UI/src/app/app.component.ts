@@ -29,12 +29,12 @@ export class AppComponent implements OnInit{
   currentCheckOutVal!:string;
   announcePresentation$!: Observable<string>
   welcome!:string;
-  message2!:Observable<string>
+  message2!:Observable<string[]>
 
     ngOnInit(){
 
       this.announcePresentation$ = this.httpClient.get(this.baseURL + '/room/reservation/v1/livepresentation', {responseType: 'text'})
-      this.message2 = this.httpClient.get(this.baseURL + '/api/presentation', {responseType: 'text'})
+      this.message2 = this.httpClient.get<string[]>(this.baseURL + '/api/presentation', {responseType: 'json'})
 
       this.getWelcomeMessage().subscribe(
         welcome=>{
