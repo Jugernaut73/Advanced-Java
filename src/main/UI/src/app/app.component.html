@@ -5,15 +5,20 @@
     <div class="hgroup">
       <h1>Landon Hotel</h1>
       <h2>London, Ontario</h2>
-      <div class="scene" id="presentation">
-        <h1>{{announcePresentation$ | async}}</h1>
-      </div>
-      <div class="scene" id="presentation2">
-        <h1>{{welcome}}</h1>
-      </div>
+<!--      <div class="scene" id="presentation">-->
+<!--        <h1>{{announcePresentation$ | async}}</h1>-->
+<!--      </div>-->
+<!--      <div class="scene" id="presentation2">-->
+<!--        <h1>{{welcome}}</h1>-->
+<!--      </div>-->
 <!--      <div class="scene" id="presentation3">-->
 <!--        <h1>{{message2 | async}}</h1>-->
 <!--      </div>-->
+      <div *ngIf="announcePresentation$ | async as presentationMessages">
+        <div *ngFor="let message of presentationMessages">
+          {{ message }}
+        </div>
+      </div>
       <p><a href="/#welcome"><img src="assets/images/arrow.png" alt="down arrow"></a></p>
     </div>
   </article>
@@ -24,7 +29,7 @@
     <nav id="nav" style="position: relative; top: 0; left: 0; bottom: auto; right: auto; width: 100%;">
       <div class="navbar">
         <div class="brand"><a href="/#welcome">Landon <span>Hotel</span></a></div>
-        <div *ngIf="message2 | async as messages">
+        <div *ngIf="welcome | async as messages">
           <div *ngFor="let message of messages">
             {{ message }}
           </div>

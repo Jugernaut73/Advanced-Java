@@ -27,21 +27,13 @@ export class AppComponent implements OnInit{
   request!:ReserveRoomRequest;
   currentCheckInVal!:string;
   currentCheckOutVal!:string;
-  announcePresentation$!: Observable<string>
-  welcome!:string;
-  message2!:Observable<string[]>
+  announcePresentation$!: Observable<string[]>
+  welcome!:Observable<string[]>
 
     ngOnInit(){
 
-      this.announcePresentation$ = this.httpClient.get(this.baseURL + '/room/reservation/v1/livepresentation', {responseType: 'text'})
-      this.message2 = this.httpClient.get<string[]>(this.baseURL + '/api/presentation', {responseType: 'json'})
-
-      this.getWelcomeMessage().subscribe(
-        welcome=>{
-          console.log(Object.values(welcome));
-          this.welcome=<any>Object.values(welcome);
-        }
-      )
+      this.announcePresentation$ = this.httpClient.get<string[]>(this.baseURL + '/api/timezones', {responseType: 'json'})
+      this.welcome = this.httpClient.get<string[]>(this.baseURL + '/api/presentation', {responseType: 'json'})
 
       this.roomsearch= new FormGroup({
         checkin: new FormControl(' '),
