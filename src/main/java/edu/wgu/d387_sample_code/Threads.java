@@ -10,7 +10,6 @@ import java.util.concurrent.ExecutorService;
 
 import static java.util.concurrent.Executors.newFixedThreadPool;
 
-@SpringBootApplication
 public class Threads {
     static ExecutorService messageExecutor=newFixedThreadPool(5);
     public static String[] translationArray = new String[2];;
