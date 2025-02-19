@@ -20,9 +20,9 @@ public class PresentationTimes {
     public static String[] timeZoneArray = new String[3];;
     @RequestMapping(path = "/timezones", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public static String[] showWelcomeMessage() {
-        ZoneId zEastern = ZoneId.of("-05:00");
-        ZoneId zMountain = ZoneId.of("-07:00");
-        ZoneId zoneId = ZoneId.systemDefault();
+        ZoneId zEastern = ZoneId.of("America/New_York");
+        ZoneId zMountain = ZoneId.of("America/Denver");
+        ZoneId zoneId = ZoneId.of("UTC");
 
         LocalDateTime localDateTime = LocalDateTime.now();
         String localTime = localDateTime.format(DateTimeFormatter.ofLocalizedTime(FormatStyle.SHORT));

@@ -14,10 +14,11 @@
 <!--      <div class="scene" id="presentation3">-->
 <!--        <h1>{{message2 | async}}</h1>-->
 <!--      </div>-->
-      <div *ngIf="announcePresentation$ | async as presentationMessages">
-        <div *ngFor="let message of presentationMessages">
+      <h2 style="color:white">Join us for a live presentation! Here are the times in UTC, Eastern, and Mountain</h2>
+      <div style="color:white" *ngIf="announcePresentation$ | async as presentationMessages">
+        <h2 *ngFor="let message of presentationMessages">
           {{ message }}
-        </div>
+        </h2>
       </div>
       <p><a href="/#welcome"><img src="assets/images/arrow.png" alt="down arrow"></a></p>
     </div>
